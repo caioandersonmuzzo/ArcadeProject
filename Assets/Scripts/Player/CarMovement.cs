@@ -21,6 +21,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float desaceleracao = 1f;
     [SerializeField] private float centripeta = 50f;
     [SerializeField] private float velocidade = 5f;
+    [SerializeField] private Transform particulaBoost;
     [Range(2f,20f)] public float ajusteDirecao = 2f;
     [Range(0.8f,1f)] public float drift = 0.9f;
     [Range(1f,2.5f)] public float aplicarBoost = 1f;
@@ -118,10 +119,12 @@ public class CarMovement : MonoBehaviour
     {
         if(GameManager.Instance.GetIsBoosting)
         {
+            particulaBoost.gameObject.SetActive(true);
             boost = aplicarBoost;
         }
         else
         {
+            particulaBoost.gameObject.SetActive(false);
             boost = 1f;
         }
     }

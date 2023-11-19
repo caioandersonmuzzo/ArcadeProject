@@ -6,7 +6,6 @@ using UnityEngine;
 public class PoliceBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float rotateSpeed = 1f;
     public float idleSpeed = 0.3f;
     public float maxSpeed = 0.6f;
     private Rigidbody2D rbody;
