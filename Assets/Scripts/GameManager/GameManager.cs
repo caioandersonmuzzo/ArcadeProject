@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     #region var
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+    public Transform player;
 
     // Variáveis de controle
     private float velocidade;
