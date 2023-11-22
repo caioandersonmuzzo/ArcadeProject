@@ -25,7 +25,7 @@ public class TransitoMovement : MonoBehaviour
         if (canRotate)
         {
             //rotacao
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, caminho[nextEsquina].position);
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, caminho[nextEsquina].position - transform.position);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.MoveRotation(rotation);
         }
