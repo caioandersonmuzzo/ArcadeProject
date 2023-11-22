@@ -12,6 +12,7 @@ public class ControladorUI : MonoBehaviour
     [SerializeField] private GameObject gameoverUI;
     [SerializeField] private GameObject temporizadorUI;
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject miniMapUI;
     private bool isRunning;
 
     private void Awake() {
@@ -45,6 +46,8 @@ public class ControladorUI : MonoBehaviour
         temporizadorUI.SetActive(false);
 
         Score.Instance.MudarScoreOver();
+        miniMapUI.SetActive(false);
+
 
         isRunning = false;
     }
@@ -57,6 +60,7 @@ public class ControladorUI : MonoBehaviour
             isRunning = false;
             pauseUI.SetActive(true);
             temporizadorUI.SetActive(false);
+            miniMapUI.SetActive(false);
             
             Score.Instance.MudarScorePause();
 
@@ -69,6 +73,7 @@ public class ControladorUI : MonoBehaviour
             isRunning = true;
             pauseUI.SetActive(false);
             temporizadorUI.SetActive(true);
+            miniMapUI.SetActive(true);
             
             return;
         }

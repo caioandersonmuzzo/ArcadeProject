@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -21,7 +17,6 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float desaceleracao = 1f;
     [SerializeField] private float centripeta = 50f;
     [SerializeField] private float velocidade = 5f;
-    [SerializeField] private Transform particulaBoost;
     [Range(2f,20f)] public float ajusteDirecao = 2f;
     [Range(0.8f,1f)] public float drift = 0.9f;
     [Range(1f,2.5f)] public float aplicarBoost = 1f;
@@ -40,7 +35,7 @@ public class CarMovement : MonoBehaviour
     private void Update() {
         GameManager.Instance.SetVelocidade(rb.velocity.magnitude);
         GameManager.Instance.SetVetVel(rb.velocity);
-        Debug.Log(boost);
+        GameManager.Instance.playerPos = transform.position;
     }
 
     private void FixedUpdate() {
@@ -74,7 +69,7 @@ public class CarMovement : MonoBehaviour
             // Frear
             rb.velocity -= vetorVelocidade * PlayerInput.frear * Time.deltaTime * desaceleracao;
 
-            if(rb.velocity.magnitude <= 0.25f && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) > 0 && PlayerInput.frear != 0) isMovingBack = true;
+            if(System.Math.Round(rb.velocity.magnitude) == 0 && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) > 0 && PlayerInput.frear != 0) isMovingBack = true;
         }
         
     }
@@ -99,7 +94,8 @@ public class CarMovement : MonoBehaviour
             // Frear
             rb.velocity -= vetorVelocidade * PlayerInput.acelerar * Time.deltaTime * desaceleracao;
 
-            if(rb.velocity.magnitude <= 0.5f && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) < 0 && PlayerInput.acelerar != 0) isMovingBack = false;
+            // Mudar essa porcaria aqgui |||
+            if(System.Math.Round(rb.velocity.magnitude) == 0 && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) < 0 && PlayerInput.acelerar != 0) isMovingBack = false;
         
         }
     }
@@ -119,12 +115,10 @@ public class CarMovement : MonoBehaviour
     {
         if(GameManager.Instance.GetIsBoosting)
         {
-            particulaBoost.gameObject.SetActive(true);
             boost = aplicarBoost;
         }
         else
         {
-            particulaBoost.gameObject.SetActive(false);
             boost = 1f;
         }
     }

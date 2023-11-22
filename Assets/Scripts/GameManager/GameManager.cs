@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     #region var
     private static GameManager _instance;
     public static GameManager Instance => _instance;
-    public Transform player;
 
     // Variáveis de controle
     private float velocidade;
@@ -18,6 +17,7 @@ public class GameManager : MonoBehaviour
     private bool isAnimating;
     private bool isBoosting;
     private bool corrida;
+    public Vector3 playerPos {set; get;}
 
     [SerializeField] private int vida = 5; 
     [SerializeField] private float timerJogo = 10f; // segundos
@@ -36,12 +36,9 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         Temporizador();
-        if(vida <= 0) gameOver = true;
-        //Debug.Log(vida);
+        if(vida <= 0 || timerJogo == 0) gameOver = true;
 
         if(isBoosting) ControleBoost();
-
-        Debug.Log(isBoosting);
     }
     #endregion
 

@@ -4,7 +4,6 @@ using UnityEngine;
 public class PosicaoMiniMap : MonoBehaviour
 {
     [SerializeField] private float size;
-    //private Vector3 diffPontoMiniMap;
     private float angulo;
     private double xPos;
     private double yPos;
@@ -19,7 +18,7 @@ public class PosicaoMiniMap : MonoBehaviour
     }
 
     private void Update() {
-        miniMap = ControladorCorrida.Instance.GetMiniMap.position;
+        //miniMap = ControladorCorrida.Instance.GetMiniMap.position;
         ping = gameObject.GetComponentInChildren<Transform>();
 
         AttTransform();
