@@ -15,10 +15,6 @@ public class TransitoManager : MonoBehaviour
     {
         parent = transform.Find("Carros").GetComponent<Transform>();
 
-        foreach (Transform t in caminho)
-        {
-            ListEsquinas.Register(t);
-        }
         StartCoroutine(SpawnCar());
     }
 
@@ -30,5 +26,21 @@ public class TransitoManager : MonoBehaviour
         carroClone.GetComponent<TransitoMovement>().nextEsquina = random;
         yield return new WaitForSeconds(cooldown/2f);
         StartCoroutine(SpawnCar());
+    }
+
+    private void OnEnable()
+    {
+        foreach (Transform t in caminho)
+        {
+            ListEsquinas.Register(t);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (Transform t in caminho)
+        {
+            ListEsquinas.Unregister(t);
+        }
     }
 }

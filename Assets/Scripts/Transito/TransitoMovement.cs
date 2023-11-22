@@ -5,19 +5,17 @@ using UnityEngine;
 public class TransitoMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 5;
     [SerializeField] float rotationSpeed;
     bool canRotate;
 
     List<Transform> caminho; //tem todo o caminho de esquinas que os carros percorrerao
-    int lastEsquina; //diz quando estamos na ultima esquina
     public int nextEsquina = 0; //diz em qual esquina estamos
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         caminho = ListEsquinas.GetPath();
-        lastEsquina = caminho.Count;
     }
 
     void FixedUpdate()
@@ -35,7 +33,7 @@ public class TransitoMovement : MonoBehaviour
 
     void WalkToEsquina()
     {
-        if (nextEsquina < lastEsquina) //se o carro nao estiver na ultima esquina
+        if (nextEsquina < caminho.Count) //se o carro nao estiver na ultima esquina
         {
             //se move ate a proxima esquina
             transform.position = Vector2.MoveTowards(transform.position,
@@ -57,7 +55,7 @@ public class TransitoMovement : MonoBehaviour
         nextEsquina++; //avanca na lista de esquinas
 
         //se a proxima esquina for de um numero maior que a ultima esquina, reinicia o percurso
-        if (nextEsquina == lastEsquina)
+        if (nextEsquina == caminho.Count)
         {
             nextEsquina = 0;
         }
