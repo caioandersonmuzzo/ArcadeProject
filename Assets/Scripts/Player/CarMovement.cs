@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -39,7 +35,7 @@ public class CarMovement : MonoBehaviour
     private void Update() {
         GameManager.Instance.SetVelocidade(rb.velocity.magnitude);
         GameManager.Instance.SetVetVel(rb.velocity);
-        Debug.Log(boost);
+        GameManager.Instance.playerPos = transform.position;
     }
 
     private void FixedUpdate() {
@@ -73,7 +69,7 @@ public class CarMovement : MonoBehaviour
             // Frear
             rb.velocity -= vetorVelocidade * PlayerInput.frear * Time.deltaTime * desaceleracao;
 
-            if(rb.velocity.magnitude <= 0.25f && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) > 0 && PlayerInput.frear != 0) isMovingBack = true;
+            if(System.Math.Round(rb.velocity.magnitude) == 0 && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) > 0 && PlayerInput.frear != 0) isMovingBack = true;
         }
         
     }
@@ -98,7 +94,8 @@ public class CarMovement : MonoBehaviour
             // Frear
             rb.velocity -= vetorVelocidade * PlayerInput.acelerar * Time.deltaTime * desaceleracao;
 
-            if(rb.velocity.magnitude <= 0.5f && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) < 0 && PlayerInput.acelerar != 0) isMovingBack = false;
+            // Mudar essa porcaria aqgui |||
+            if(System.Math.Round(rb.velocity.magnitude) == 0 && Math.Sign(Vector2.Dot(rb.velocity,transform.up)) < 0 && PlayerInput.acelerar != 0) isMovingBack = false;
         
         }
     }

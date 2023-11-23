@@ -1,12 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.Layouts;
 
 public class Cliente : MonoBehaviour
 {
+    private SpriteRenderer _renderer;
+    private void Awake() {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
     private void Start() {
         Destroy(transform.parent.gameObject,ControladorCorrida.Instance.GetTempCliente);
+        _renderer.color = new Color(Random.value,Random.value,Random.value);
     }
     private void OnTriggerEnter2D(Collider2D collider2D) {
         if(collider2D.CompareTag("Player"))
@@ -15,4 +18,5 @@ public class Cliente : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
     }
+    
 }

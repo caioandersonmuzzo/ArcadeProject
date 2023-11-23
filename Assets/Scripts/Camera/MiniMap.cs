@@ -11,7 +11,6 @@ public class MiniMap : MonoBehaviour
 
     private void Update() {
         SeguirJogador();
-        ControladorCorrida.Instance.UpdatePosMiniMap(this.transform);
     }
 
     private void SeguirJogador()

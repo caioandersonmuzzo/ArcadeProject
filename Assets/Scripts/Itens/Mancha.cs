@@ -9,6 +9,7 @@ public class Mancha : MonoBehaviour
         {
             Animacao.Instance.Escorregar();
             GameManager.Instance.RedVida();
+            Destroy(gameObject);
         }
     }
 }

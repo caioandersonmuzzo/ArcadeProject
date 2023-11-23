@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 278073203879267542}
   - component: {fileID: 8879577229537035193}
   - component: {fileID: 7378142856889056304}
-  - component: {fileID: 8765095108785333513}
   - component: {fileID: 1794167369238417959}
+  - component: {fileID: 394459953383253099}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8845467307131601971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.92, y: 15.68, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4199893, g: 0.42042276, b: 0.735849, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 76a9313e088130746a70a1318f42a983, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,8 +114,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &8765095108785333513
-CircleCollider2D:
+--- !u!114 &1794167369238417959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845467307131601971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff43dcfe7d5b8f4681d7dd469423d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempoBoost: 5
+--- !u!70 &394459953383253099
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,19 +159,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &1794167369238417959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8845467307131601971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff43dcfe7d5b8f4681d7dd469423d87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempoBoost: 5
+  m_Offset: {x: 0.0029619038, y: -0.0059238076}
+  m_Size: {x: 0.6664664, y: 0.82680917}
+  m_Direction: 0
