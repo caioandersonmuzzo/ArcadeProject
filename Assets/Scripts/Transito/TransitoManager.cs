@@ -33,7 +33,7 @@ public class TransitoManager : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         random = Random.Range(0, caminho.Length);
 
-        while (CanSpawn() == 0)
+        while (currentCarAmount >= maxCars || CanSpawn() == 0)
         {
             yield return new WaitForSeconds(1f);
             Debug.Log("Trying to spawn again!");
@@ -42,7 +42,7 @@ public class TransitoManager : MonoBehaviour
         GameObject carroClone = Instantiate(carro, caminho[random].position, Quaternion.identity, parent);
         carroClone.GetComponent<TransitoMovement>().nextEsquina = random;
         currentCarAmount++;
-        if (currentCarAmount < maxCars) StartCoroutine(SpawnCar());
+        StartCoroutine(SpawnCar());
     }
 
     int CanSpawn()

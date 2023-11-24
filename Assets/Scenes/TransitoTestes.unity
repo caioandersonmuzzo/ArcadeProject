@@ -379,7 +379,7 @@ MonoBehaviour:
   carColliders:
     serializedVersion: 2
     m_Bits: 256
-  maxCars: 50
+  maxCars: 2
 --- !u!4 &1636809781
 Transform:
   m_ObjectHideFlags: 0
