@@ -7,7 +7,7 @@ public class TransitoMovement : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 5;
     [SerializeField] float rotationSpeed;
-    bool canRotate;
+    [SerializeField] float timeToRotate;
 
     List<Transform> caminho; //tem todo o caminho de esquinas que os carros percorrerao
     public int nextEsquina = 0; //diz em qual esquina estamos
@@ -21,14 +21,14 @@ public class TransitoMovement : MonoBehaviour
     void FixedUpdate()
     {
         WalkToEsquina();
+        Debug.Log(rb.velocity);
+        rb.velocity = Vector2.zero;
 
-        if (canRotate)
-        {
-            //rotacao
+        //rotacao
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, caminho[nextEsquina].position - transform.position);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.MoveRotation(rotation);
-        }
+        
     }
 
     void WalkToEsquina()
@@ -60,11 +60,9 @@ public class TransitoMovement : MonoBehaviour
             nextEsquina = 0;
         }
 
-        canRotate = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeToRotate);
 
-        canRotate = false;
         moveSpeed = trueSpeed; //retorna a velocidade ao carro
     }
 }

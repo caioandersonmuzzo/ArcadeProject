@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2305162730780867126}
   - component: {fileID: 7234399887366778605}
   - component: {fileID: 5349145311272734762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Carro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,13 +95,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6249042930979218090}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -172,5 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotationSpeed: 200
+  rotationSpeed: 400
+  timeToRotate: 0.1
   nextEsquina: 0
