@@ -5,37 +5,35 @@ using UnityEngine;
 public class TransitoMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 5;
     [SerializeField] float rotationSpeed;
-    bool canRotate;
+    [SerializeField] float timeToRotate;
 
     List<Transform> caminho; //tem todo o caminho de esquinas que os carros percorrerao
-    int lastEsquina; //diz quando estamos na ultima esquina
     public int nextEsquina = 0; //diz em qual esquina estamos
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         caminho = ListEsquinas.GetPath();
-        lastEsquina = caminho.Count;
     }
 
     void FixedUpdate()
     {
         WalkToEsquina();
+        Debug.Log(rb.velocity);
+        rb.velocity = Vector2.zero;
 
-        if (canRotate)
-        {
-            //rotacao
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, caminho[nextEsquina].position);
+        //rotacao
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, caminho[nextEsquina].position - transform.position);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.MoveRotation(rotation);
-        }
+        
     }
 
     void WalkToEsquina()
     {
-        if (nextEsquina < lastEsquina) //se o carro nao estiver na ultima esquina
+        if (nextEsquina < caminho.Count) //se o carro nao estiver na ultima esquina
         {
             //se move ate a proxima esquina
             transform.position = Vector2.MoveTowards(transform.position,
@@ -57,16 +55,14 @@ public class TransitoMovement : MonoBehaviour
         nextEsquina++; //avanca na lista de esquinas
 
         //se a proxima esquina for de um numero maior que a ultima esquina, reinicia o percurso
-        if (nextEsquina == lastEsquina)
+        if (nextEsquina == caminho.Count)
         {
             nextEsquina = 0;
         }
 
-        canRotate = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeToRotate);
 
-        canRotate = false;
         moveSpeed = trueSpeed; //retorna a velocidade ao carro
     }
 }

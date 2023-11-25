@@ -368,14 +368,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7872982c58f7d3443bd8459aa15be23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carro: {fileID: 6249042930979218090, guid: 392ef5bc06d66c140a5678bee996a54d, type: 3}
+  carro: {fileID: 6249042930979218090, guid: 9fd4cd206ce329e4598d18baa7ef6ec9, type: 3}
   caminho:
   - {fileID: 1951545700}
   - {fileID: 1973553606}
   - {fileID: 906255930}
   - {fileID: 135322623}
   - {fileID: 1415649887}
-  cooldown: 5
+  cooldown: 1
+  carColliders:
+    serializedVersion: 2
+    m_Bits: 256
+  maxCars: 2
 --- !u!4 &1636809781
 Transform:
   m_ObjectHideFlags: 0
