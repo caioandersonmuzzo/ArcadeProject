@@ -20,6 +20,7 @@ public class CarMovement : MonoBehaviour
     [Range(2f,20f)] public float ajusteDirecao = 2f;
     [Range(0.8f,1f)] public float drift = 0.9f;
     [Range(1f,2.5f)] public float aplicarBoost = 1f;
+    public ParticleSystem particulaFumaca;
     
     #endregion
 
@@ -56,6 +57,14 @@ public class CarMovement : MonoBehaviour
         {
             vetorVelocidade = transform.up * Vector2.Dot(rb.velocity, transform.up);
             vetorDrift = transform.right * Vector2.Dot(rb.velocity,transform.right);
+            if (PlayerInput.acelerar > 0.2f)
+            {
+                particulaFumaca.Play();
+            }
+            else
+            {
+                particulaFumaca.Stop();
+            }
 
             if(!isDrifting)
             {
