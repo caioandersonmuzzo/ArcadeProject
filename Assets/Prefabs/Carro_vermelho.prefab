@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8618798967105847592}
   - component: {fileID: 5973891017078281409}
   - component: {fileID: -4983300249176651613}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Carro_vermelho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
