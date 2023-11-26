@@ -7,7 +7,7 @@ public class IniciarCorrida : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
     private void OnTriggerStay2D(Collider2D collider) {
-        if(collider.CompareTag("Player") && !GameManager.Instance.GetCorrida && PlayerInput.acao != 0) IniCorrida();
+        if(collider.CompareTag("Player") && !GameManager.Instance.GetCorrida) IniCorrida();
     }
 
     private void IniCorrida()

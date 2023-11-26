@@ -7,6 +7,7 @@ public class ControladorMiniMapa : MonoBehaviour
     [SerializeField] private Transform posMap;
     [SerializeField] private GameObject goal;
     [SerializeField] private Transform referencia;
+    [SerializeField] private Transform player;
     private Vector2 vetor;
     private float rotacao;
     private void Update() {
@@ -17,7 +18,7 @@ public class ControladorMiniMapa : MonoBehaviour
     private void AtualizarGoal()
     {
         goal.SetActive(true);
-        vetor = (ControladorCorrida.Instance.posChegada.position - posMap.position).normalized * 50f;
+        vetor = (ControladorCorrida.Instance.posChegada.position - player.position).normalized * 50f;
         goal.transform.localPosition = vetor;
 
         rotacao = Vector2.SignedAngle(referencia.localPosition,goal.transform.localPosition);

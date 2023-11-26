@@ -15,7 +15,6 @@ public class Cliente : MonoBehaviour
         if(collider2D.CompareTag("Player"))
         {
             GameManager.Instance.RedVida();
-            Destroy(transform.parent.gameObject);
         }
     }
     

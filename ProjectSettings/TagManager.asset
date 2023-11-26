@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mancha
   - Carro
+  - CarrosTransito
   layers:
   - Default
   - TransparentFX

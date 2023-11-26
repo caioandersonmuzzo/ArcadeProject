@@ -25,7 +25,7 @@ public class ControladorCorrida : MonoBehaviour
     {
         vetorCorrida = chegada[Random.Range(0,chegada.Count)];
         posChegada = vetorCorrida;
-        Instantiate(prefab,vetorCorrida);
+        Instantiate(prefab,vetorCorrida.position, Quaternion.identity, transform);
     }
 
 }

@@ -5,7 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TransitoManager : MonoBehaviour
 {
-    [SerializeField] GameObject carro;
+    [SerializeField] GameObject[] carros;
     [SerializeField] Transform[] caminho;
     [SerializeField] float cooldown;
 
@@ -15,13 +15,13 @@ public class TransitoManager : MonoBehaviour
     [SerializeField] int maxCars = 5;
     int currentCarAmount;
 
-    int random;
+    int randomEsquina;
+    int randomCar;
     Transform parent;
 
     void Start()
     {
         parent = transform.parent.Find("Carros").GetComponent<Transform>();
-        carDimensions = carro.GetComponent<Transform>().localScale;
 
         StartCoroutine(SpawnCar());
     }
@@ -31,7 +31,8 @@ public class TransitoManager : MonoBehaviour
     IEnumerator SpawnCar()
     {
         yield return new WaitForSeconds(cooldown);
-        random = Random.Range(0, caminho.Length);
+        randomEsquina = Random.Range(0, caminho.Length);
+        randomCar = Random.Range(0, carros.Length);
 
         while (currentCarAmount >= maxCars || CanSpawn() == 0)
         {
@@ -39,8 +40,8 @@ public class TransitoManager : MonoBehaviour
             Debug.Log("Trying to spawn again!");
         }
 
-        GameObject carroClone = Instantiate(carro, caminho[random].position, Quaternion.identity, parent);
-        carroClone.GetComponent<TransitoMovement>().nextEsquina = random;
+        GameObject carroClone = Instantiate(carros[randomCar], caminho[randomEsquina].position, Quaternion.identity, parent);
+        carroClone.GetComponent<TransitoMovement>().nextEsquina = randomEsquina;
         currentCarAmount++;
         StartCoroutine(SpawnCar());
     }
@@ -48,7 +49,7 @@ public class TransitoManager : MonoBehaviour
     int CanSpawn()
     {
         //cria um collider trigger na hora para testar se tem um carro nessa posicao ja
-        if (!Physics2D.BoxCast(caminho[random].position, carDimensions * 2f, 0f, Vector2.zero, 0f, carColliders))
+        if (!Physics2D.BoxCast(caminho[randomEsquina].position, carDimensions * 2f, 0f, Vector2.zero, 0f, carColliders))
         {
             return 1;
         }
