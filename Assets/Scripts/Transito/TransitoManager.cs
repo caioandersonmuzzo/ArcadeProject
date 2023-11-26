@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TransitoManager : MonoBehaviour
 {
     [SerializeField] GameObject[] carros;
-    [SerializeField] Transform[] caminho;
+    public Transform[] caminho;
     [SerializeField] float cooldown;
 
     [SerializeField] LayerMask carColliders;
