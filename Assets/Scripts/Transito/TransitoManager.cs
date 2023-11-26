@@ -20,7 +20,7 @@ public class TransitoManager : MonoBehaviour
 
     void Start()
     {
-        parent = transform.Find("Carros").GetComponent<Transform>();
+        parent = transform.parent.Find("Carros").GetComponent<Transform>();
         carDimensions = carro.GetComponent<Transform>().localScale;
 
         StartCoroutine(SpawnCar());

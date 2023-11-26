@@ -20,8 +20,10 @@ public class TransitoMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        WalkToEsquina();
-        Debug.Log(rb.velocity);
+        if (moveSpeed > 0)
+        {
+            WalkToEsquina();
+        }
         rb.velocity = Vector2.zero;
 
         //rotacao
