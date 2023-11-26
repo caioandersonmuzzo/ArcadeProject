@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3046931980391759680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 86.38825
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 136.9833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.76123
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.4900756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804552236410871304, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575709363560087242, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: limiteSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519399486932921233, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
+    - target: {fileID: 5519399486932921233, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      propertyPath: m_Name
+      value: ItemSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4575709363560087242, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5519399486932921233, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6350365647265837796}
+  m_SourcePrefab: {fileID: 100100000, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+--- !u!1 &7408483960572548305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519399486932921233, guid: 7e91f0a7921e73b418cb82da2c55c732, type: 3}
+  m_PrefabInstance: {fileID: 3046931980391759680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6350365647265837796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408483960572548305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd93f1c6666ad04682b34daabf65bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manchaOleo: {fileID: 0}
+  boost: {fileID: 0}
+  infEsq: {fileID: 0}
+  supDir: {fileID: 0}
+  limiteSpawn: 0
+  chanceSpawnOleo: 1
+  chanceSpawnBoost: 1
